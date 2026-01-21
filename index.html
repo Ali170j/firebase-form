@@ -2,19 +2,80 @@
 <html lang="ar">
 <head>
   <meta charset="UTF-8">
-  <title>Firebase Form</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>نموذج Firebase</title>
+  <style>
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(120deg, #89f7fe, #66a6ff);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 6px;
+      background: #66a6ff;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background: #89f7fe;
+    }
+
+    #status {
+      margin-top: 20px;
+      font-weight: bold;
+      color: green;
+    }
+  </style>
 </head>
 <body>
-  <h1>نموذج إدخال البيانات</h1>
+  <div class="container">
+    <h1>نموذج إدخال البيانات</h1>
 
-  <!-- نموذج بسيط -->
-  <form id="dataForm">
-    <input type="text" id="name" placeholder="الاسم" required>
-    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
-    <button type="submit">إرسال</button>
-  </form>
+    <form id="dataForm">
+      <input type="text" id="name" placeholder="الاسم" required>
+      <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+      <button type="submit">إرسال</button>
+    </form>
 
-  <p id="status"></p>
+    <p id="status"></p>
+  </div>
 
   <!-- Firebase SDKs -->
   <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
