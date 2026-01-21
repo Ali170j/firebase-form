@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Firebase Form</title>
+</head>
+<body>
+  <h1>نموذج إدخال البيانات</h1>
+
+  <!-- نموذج بسيط -->
+  <form id="dataForm">
+    <input type="text" id="name" placeholder="الاسم" required>
+    <input type="email" id="email" placeholder="البريد الإلكتروني" required>
+    <button type="submit">إرسال</button>
+  </form>
+
+  <p id="status"></p>
+
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/9.22.2/firebase-database-compat.js"></script>
+
+  <script>
+    // إعداد Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyCYjMh31WapcYukKZSrgoxlvQZk8HH3a0E",
+      authDomain: "bit3-81896.firebaseapp.com",
+      projectId: "bit3-81896",
+      storageBucket: "bit3-81896.firebasestorage.app",
+      messagingSenderId: "5075875063",
+      appId: "1:5075875063:web:c2d8af94c65cd85cb08ff2"
+    };
+
+    // تهيئة التطبيق
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+
+    // التعامل مع إرسال النموذج
+    document.getElementById("dataForm").addEventListener("submit", function(e){
+      e.preventDefault();
+
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+
+      db.ref("submissions/").push({
+        name: name,
+        email: email
+      })
+      .then(() => {
+        document.getElementById("status").innerText = "تم الإرسال بنجاح!";
+        document.getElementById("dataForm").reset();
+      })
+      .catch((err) => {
+        document.getElementById("status").innerText = "حدث خطأ: " + err;
+      });
+    });
+  </script>
+</body>
+</html>
