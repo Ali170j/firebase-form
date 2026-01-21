@@ -84,13 +84,14 @@
   <script>
     // إعداد Firebase
     const firebaseConfig = {
-      apiKey: "AIzaSyCYjMh31WapcYukKZSrgoxlvQZk8HH3a0E",
-      authDomain: "bit3-81896.firebaseapp.com",
-      projectId: "bit3-81896",
-      storageBucket: "bit3-81896.firebasestorage.app",
-      messagingSenderId: "5075875063",
-      appId: "1:5075875063:web:c2d8af94c65cd85cb08ff2"
-    };
+  apiKey: "AIzaSyCYjMh31WapcYukKZSrgoxlvQZk8HH3a0E",
+  authDomain: "bit3-81896.firebaseapp.com",
+  databaseURL: "https://bit3-81896-default-rtdb.europe-west1.firebasedatabase.app", // <-- أضف هذا
+  projectId: "bit3-81896",
+  storageBucket: "bit3-81896.firebasestorage.app",
+  messagingSenderId: "5075875063",
+  appId: "1:5075875063:web:c2d8af94c65cd85cb08ff2"
+};
 
     // تهيئة التطبيق
     firebase.initializeApp(firebaseConfig);
